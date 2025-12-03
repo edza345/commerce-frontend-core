@@ -151,6 +151,24 @@ In addition to the `.csv` file that contains the language dictionary, the langua
 *  `language.xml`, in which you declare a language package.
    [Sample language.xml](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cli/localization.html#example%3A-create-a-language-package).
 
+## Magento 2 Translation Priority
+
+When the *same string* exists in multiple translation sources, Magento applies this override order (lowest → highest):
+
+1. **Module translations**  
+   `vendor/*/i18n/` and `app/code/*/*/i18n/`
+
+2. **Language packs**  
+   `app/i18n/*/*/`
+
+3. **Theme translations**  
+   `app/design/*/*/i18n/`
+
+4. **Inline DB translations**  
+   Stored via inline translation tool
+
+Higher items override all lower items for identical keys.
+
 ## Open-source translations project
 
 The Community Engineering team accepts translation contributions through the [CrowdIn project] to localize all UI strings. Various Meet Magento and Contribution Day events include developers contributing translations.
